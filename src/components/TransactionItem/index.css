@@ -1,0 +1,36 @@
+.transaction-item {
+  display: flex;
+  border: 1px solid #b5b7c4;
+  border-radius: 5px;
+}
+.title {
+  color: #334155;
+  font-family: 'Roboto';
+  font-size: 15px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.amount {
+  color: #334155;
+  font-family: 'Roboto';
+  font-size: 15px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.type {
+  color: #334155;
+  font-family: 'Roboto';
+  font-size: 15px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.delete-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.delete-image {
+  height: 20px;
+  width: 20px;
+}

@@ -1,5 +1,5 @@
 .balance {
-  width: 249px;
+  width: 270px;
   display: flex;
   align-items: center;
   background-color: #ecfccb;
@@ -9,7 +9,7 @@
   margin: 20px;
 }
 .income {
-  width: 249px;
+  width: 270px;
   display: flex;
   align-items: center;
   background-color: #cffafe;
@@ -19,7 +19,7 @@
   margin: 20px;
 }
 .expenses {
-  width: 249px;
+  width: 270px;
   display: flex;
   align-items: center;
   background-color: #ede9fe;

@@ -49,11 +49,13 @@ class MoneyManager extends Component {
       amount,
       type,
     }
+    console.log(newTransaction)
 
     if (type === 'Income') {
       this.setState(prevState => ({
         balance: prevState.balance + parseInt(amount),
         income: prevState.income + parseInt(amount),
+        expenses: prevState.expenses,
       }))
     } else {
       this.setState(prevState => ({
@@ -114,6 +116,7 @@ class MoneyManager extends Component {
 
   render() {
     const {transactionList, title, amount, type} = this.state
+    console.log(type, transactionList)
 
     return (
       <div className="app-container">
@@ -177,8 +180,12 @@ class MoneyManager extends Component {
                 value={type}
                 onChange={this.onSelectingType}
               >
-                <option value="Income">Income</option>
-                <option value="Expenses">Expenses</option>
+                <option value={transactionTypeOptions[1].optionId}>
+                  Income
+                </option>
+                <option value={transactionTypeOptions[2].optionId}>
+                  Expenses
+                </option>
               </select>
               <button type="submit" className="btn">
                 Add
@@ -200,7 +207,6 @@ class MoneyManager extends Component {
                     <TransactionItem
                       transactionDetails={each}
                       key={each.id}
-                      transactionTypeOptions={transactionTypeOptions}
                       onRemovingTransaction={this.onRemovingTransaction}
                     />
                   ))

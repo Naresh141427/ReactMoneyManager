@@ -17,9 +17,7 @@ const MoneyDetails = props => {
     <li className={className}>
       <img src={imageUrl} className="images" alt={className} />
       <div className="content-container">
-        <p className="title" data-testid={`${className}Amount`}>
-          Your {displayText}
-        </p>
+        <p className="title">Your {displayText}</p>
         <p className="money">RS {value}</p>
       </div>
     </li>

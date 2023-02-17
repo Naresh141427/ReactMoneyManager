@@ -58,7 +58,10 @@ class MoneyManager extends Component {
     } else {
       this.setState(prevState => ({
         expenses: prevState.expenses + parseInt(amount),
-        income: prevState.income - parseInt(amount),
+        income:
+          prevState.income > 0
+            ? prevState.income - parseInt(amount)
+            : prevState.income,
         balance: prevState.balance - parseInt(amount),
       }))
     }
@@ -67,7 +70,7 @@ class MoneyManager extends Component {
       transactionList: [...prevState.transactionList, newTransaction],
       title: '',
       amount: '',
-      type: '',
+      type: 'Income',
     }))
   }
 
@@ -91,28 +94,26 @@ class MoneyManager extends Component {
       this.setState(prevState => ({
         transactionList: resultList,
         balance: prevState.balance - parseInt(amount),
-        income: prevState.income - parseInt(amount),
+        income:
+          prevState.income - parseInt(amount) > 0
+            ? prevState.income - parseInt(amount)
+            : 0,
       }))
     } else {
       this.setState(prevState => ({
         transactionList: resultList,
         expenses: prevState.expenses - parseInt(amount),
-        income: prevState.income + parseInt(amount),
+        income:
+          prevState.income > 0
+            ? prevState.income + parseInt(amount)
+            : prevState.income,
         balance: prevState.balance + parseInt(amount),
       }))
     }
   }
 
   render() {
-    const {
-      transactionList,
-      title,
-      amount,
-      type,
-      balance,
-      income,
-      expenses,
-    } = this.state
+    const {transactionList, title, amount, type} = this.state
 
     return (
       <div className="app-container">
@@ -174,7 +175,6 @@ class MoneyManager extends Component {
                 id="selection-bar"
                 className="input"
                 value={type}
-                defaultValue="Income"
                 onChange={this.onSelectingType}
               >
                 <option value="Income">Income</option>
@@ -189,11 +189,9 @@ class MoneyManager extends Component {
           <div className="transaction-history-container">
             <h1 className="history-header">History</h1>
             <div className="history-table">
-              <div className="content-conatiner">
-                <p className="history-title">Title</p>
-                <p className="history-amount">Amount</p>
-                <p className="history-type">Type</p>
-              </div>
+              <p className="history-title">Title</p>
+              <p className="history-amount">Amount</p>
+              <p className="history-type">Type</p>
             </div>
 
             <ul className="history-items-list-container">
@@ -202,6 +200,7 @@ class MoneyManager extends Component {
                     <TransactionItem
                       transactionDetails={each}
                       key={each.id}
+                      transactionTypeOptions={transactionTypeOptions}
                       onRemovingTransaction={this.onRemovingTransaction}
                     />
                   ))

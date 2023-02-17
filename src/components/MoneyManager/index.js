@@ -60,10 +60,7 @@ class MoneyManager extends Component {
     } else {
       this.setState(prevState => ({
         expenses: prevState.expenses + parseInt(amount),
-        income:
-          prevState.income > 0
-            ? prevState.income - parseInt(amount)
-            : prevState.income,
+        income: prevState.income,
         balance: prevState.balance - parseInt(amount),
       }))
     }
@@ -105,10 +102,7 @@ class MoneyManager extends Component {
       this.setState(prevState => ({
         transactionList: resultList,
         expenses: prevState.expenses - parseInt(amount),
-        income:
-          prevState.income > 0
-            ? prevState.income + parseInt(amount)
-            : prevState.income,
+        income: prevState.income,
         balance: prevState.balance + parseInt(amount),
       }))
     }

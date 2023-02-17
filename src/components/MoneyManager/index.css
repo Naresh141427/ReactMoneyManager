@@ -118,14 +118,8 @@
   display: flex;
   border: 1px solid #b5b7c4;
 }
-.content-conatiner {
-  width: 70%;
-  display: flex;
-  justify-content: space-between;
-  padding-left: 0px;
-  margin-left: 0px;
-}
 .history-title {
+  width: 150px;
   color: #1e293b;
   font-family: 'Roboto';
   font-size: 15px;
@@ -133,6 +127,7 @@
   margin-left: 10px;
 }
 .history-amount {
+  width: 150px;
   color: #1e293b;
   font-family: 'Roboto';
   font-size: 15px;

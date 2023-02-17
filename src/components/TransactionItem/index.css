@@ -1,9 +1,9 @@
 .transaction-item {
   display: flex;
-  justify-content: space-between;
   border: 1px solid #b5b7c4;
 }
 .title {
+  width: 150px;
   color: #7e858e;
   font-family: 'Roboto';
   font-size: 15px;
@@ -11,12 +11,14 @@
   margin-left: 10px;
 }
 .amount {
+  width: 150px;
   color: #7e858e;
   font-family: 'Roboto';
   font-size: 15px;
   font-weight: 500;
 }
 .type {
+  width: 150px;
   color: #7e858e;
   font-family: 'Roboto';
   font-size: 15px;
